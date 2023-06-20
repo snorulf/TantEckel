@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class StickyTentacle : MonoBehaviour
@@ -115,7 +116,24 @@ public class StickyTentacle : MonoBehaviour
 
     private bool CheckAttached()
     {
-        return Vector3.Distance(targetPosition, tipBone.transform.position) < attachDistance;
+        var targetDistance = Vector3.Distance(targetPosition, tipBone.transform.position);
+
+        bool reachable = targetDistance < attachDistance;
+
+#if false
+        if (reachable)
+        {
+            Debug.Log("<color=green>" + targetDistance + "</color>");
+            Debug.DrawLine(targetPosition, tipBone.transform.position, Color.green, 0.1f);
+        }
+        else
+        {
+            Debug.Log("<color=blue>" + targetDistance + "</color>");
+            Debug.DrawLine(targetPosition, tipBone.transform.position, Color.blue, 0.1f);
+        }
+#endif
+
+        return reachable;
     }
 
     private bool CheckOverStretched()
@@ -133,16 +151,15 @@ public class StickyTentacle : MonoBehaviour
         {
             if (CheckOverStretched())
             {
+#if false
                 Debug.DrawLine(targetPosition, rootBone.transform.position, Color.red, 0.1f);
-
+#endif
                 moveTime = 0f;
                 state = State.Idle;
                 return;
             }
-
         }
-        
-        if (CheckAttached())
+        else if (CheckAttached())
         {
             state = State.Attached;
         }
