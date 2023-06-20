@@ -194,14 +194,14 @@ MonoBehaviour:
   attachLayerMaskName:
     serializedVersion: 2
     m_Bits: 268435456
-  tentacleSpeed: 15
+  tentacleSpeed: 12.5
   targetPosition: {x: 0, y: 0, z: 0}
   tantEckel: {fileID: 0}
-  maxStretchDistance: 5.4
+  maxStretchDistance: 3
   maxStretchRandomness: 0.1
-  attachDistance: 0.1
+  attachDistance: 0.25
   attachDistanceRandomness: 0.05
-  rayStartVelocityModifier: 10
+  rayStartVelocityModifier: 15
   idleTimer: 0.1
   moveTimer: 0.25
   attachedTimer: 1
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4763954791102180008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 

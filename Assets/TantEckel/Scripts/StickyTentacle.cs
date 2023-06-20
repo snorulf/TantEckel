@@ -67,8 +67,7 @@ public class StickyTentacle : MonoBehaviour
         {
             Seek();
         }
-
-        if (state == State.Moving)
+        else if (state == State.Moving)
         {
             MoveToTarget();
         }
@@ -138,9 +137,16 @@ public class StickyTentacle : MonoBehaviour
 
     private bool CheckOverStretched()
     {
-        return Vector3.Distance(targetPosition, rootBone.transform.position) > maxStretchDistance;
-    }
+        var rayDirection = -rayCastTransform.transform.forward;
+        if (Physics.Raycast(rayCastTransform.transform.position, rayDirection, out RaycastHit hit, maxDistance, attachLayerMaskName))
+        {
+            Debug.DrawLine(targetPosition, hit.point, Color.red, 0.1f);
 
+            return Vector3.Distance(targetPosition, hit.point) > maxStretchDistance;
+        }
+        return true;
+    }
+    
     private void MoveToTarget()
     {
         IKTarget.transform.position = Vector3.Slerp(IKTarget.transform.position, targetPosition, tentacleSpeed * Time.deltaTime);
