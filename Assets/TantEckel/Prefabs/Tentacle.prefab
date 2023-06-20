@@ -188,7 +188,7 @@ MonoBehaviour:
   maxDistance: 4.5
   IKTarget: {fileID: 7984639309740062105}
   idlePosition: {fileID: 6398879714707235057}
-  rootBone: {fileID: 3986812635508966318}
+  rootBone: {fileID: 6494028257396740299}
   tipBone: {fileID: 8470467014470739221}
   rayCastTransform: {fileID: 9219509501953381385}
   attachLayerMaskName:
@@ -197,7 +197,7 @@ MonoBehaviour:
   tentacleSpeed: 15
   targetPosition: {x: 0, y: 0, z: 0}
   tantEckel: {fileID: 0}
-  maxStretchDistance: 5
+  maxStretchDistance: 5.4
   maxStretchRandomness: 0.1
   attachDistance: 0.1
   attachDistanceRandomness: 0.05
