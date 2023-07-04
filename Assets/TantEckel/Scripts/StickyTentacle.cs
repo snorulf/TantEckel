@@ -21,8 +21,6 @@ public class StickyTentacle : MonoBehaviour
 
     public Vector3 targetPosition;
 
-    [SerializeField] TantEckel tantEckel;
-
     [SerializeField] public float maxStretchDistance = 2.0f;
     [SerializeField] public float maxStretchRandomness = 0.2f;
     [SerializeField] public float attachDistance = 0.1f;
@@ -40,6 +38,9 @@ public class StickyTentacle : MonoBehaviour
     private float attachedTime = 0f;
 
     private Vector3 rayStart;
+
+    private Vector3 lastBodyPosition;
+    private Vector3 velocity;
 
     void Start()
     {
@@ -76,9 +77,16 @@ public class StickyTentacle : MonoBehaviour
             Attached();
         }
     }
+
+    void FixedUpdate()
+    {
+        velocity = transform.position - lastBodyPosition;
+        lastBodyPosition = transform.position;
+    }
+
     private void Seek()
     {
-        rayStart = rayCastTransform.transform.position + (tantEckel.velocity * rayStartVelocityModifier);
+        rayStart = rayCastTransform.transform.position + (velocity * rayStartVelocityModifier);
         var rayDirection = rayCastTransform.transform.forward * maxDistance;
 
         Debug.DrawRay(rayStart, rayDirection, Color.green, 0.1f);

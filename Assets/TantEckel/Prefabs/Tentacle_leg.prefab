@@ -406,7 +406,6 @@ GameObject:
   - component: {fileID: 3757988930309192986}
   - component: {fileID: 3757988930309192965}
   - component: {fileID: 3757988930309192987}
-  - component: {fileID: 3757988930309192984}
   m_Layer: 0
   m_Name: Tentacle_leg
   m_TagString: Untagged
@@ -496,7 +495,6 @@ MonoBehaviour:
     m_Bits: 268435456
   tentacleSpeed: 15
   targetPosition: {x: 0, y: 0, z: 0}
-  tantEckel: {fileID: 3757988930309192984}
   maxStretchDistance: 2
   maxStretchRandomness: 0.25
   attachDistance: 0.5
@@ -505,20 +503,6 @@ MonoBehaviour:
   idleTimer: 0.1
   moveTimer: 0.25
   attachedTimer: 0.5
---- !u!114 &3757988930309192984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4100077574051381329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a87061e89e42b49945c8efe4983fc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
-  stepSize: 1
 --- !u!1 &4488430103476602590
 GameObject:
   m_ObjectHideFlags: 0
