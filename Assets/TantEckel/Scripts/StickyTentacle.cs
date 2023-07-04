@@ -79,7 +79,7 @@ public class StickyTentacle : MonoBehaviour
     private void Seek()
     {
         rayStart = rayCastTransform.transform.position + (tantEckel.velocity * rayStartVelocityModifier);
-        var rayDirection = -rayCastTransform.transform.forward * maxDistance;
+        var rayDirection = rayCastTransform.transform.forward * maxDistance;
 
         Debug.DrawRay(rayStart, rayDirection, Color.green, 0.1f);
 
@@ -137,8 +137,7 @@ public class StickyTentacle : MonoBehaviour
 
     private bool CheckOverStretched()
     {
-        var rayDirection = -rayCastTransform.transform.forward;
-        if (Physics.Raycast(rayCastTransform.transform.position, rayDirection, out RaycastHit hit, maxDistance, attachLayerMaskName))
+        if (Physics.Raycast(rayCastTransform.transform.position, rayCastTransform.transform.forward, out RaycastHit hit, maxDistance, attachLayerMaskName))
         {
             Debug.DrawLine(targetPosition, hit.point, Color.red, 0.1f);
 

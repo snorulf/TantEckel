@@ -31,18 +31,16 @@ public class SimpleMoveController : MonoBehaviour
     {
         // Movement in forward direction
         float forwardInput = controls.Movement.Forward.ReadValue<float>();
-        transform.position += transform.forward * forwardInput * movementSpeed * Time.deltaTime;
-        
-        // Yaw
-        float yawInput = controls.Movement.Yaw.ReadValue<float>();
-        transform.Rotate(0f, yawInput * rotationSpeed * Time.deltaTime, 0f);
+        transform.localPosition += transform.forward * forwardInput * movementSpeed * Time.deltaTime;
 
-        // Pitch
+        // Yaw and Pitch
+        float yawInput = controls.Movement.Yaw.ReadValue<float>();
         float pitchInput = controls.Movement.Pitch.ReadValue<float>();
-        transform.Rotate(pitchInput * rotationSpeed * Time.deltaTime, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x /* + (pitchInput * rotationSpeed * Time.deltaTime)*/, transform.localRotation.eulerAngles.y + (yawInput * rotationSpeed * Time.deltaTime), 0f);
+
 
         // Altitude
         float altitudeInput = controls.Movement.Altitude.ReadValue<float>();
-        transform.position += transform.up * altitudeInput * movementSpeed * Time.deltaTime;
+        transform.localPosition += transform.up * altitudeInput * movementSpeed * Time.deltaTime;
     }
 }
