@@ -36,7 +36,7 @@ public class SimpleMoveController : MonoBehaviour
         // Yaw and Pitch
         float yawInput = controls.Movement.Yaw.ReadValue<float>();
         float pitchInput = controls.Movement.Pitch.ReadValue<float>();
-        transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x /* + (pitchInput * rotationSpeed * Time.deltaTime)*/, transform.localRotation.eulerAngles.y + (yawInput * rotationSpeed * Time.deltaTime), 0f);
+        transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x /* + (pitchInput * rotationSpeed * Time.deltaTime)*/, transform.localRotation.eulerAngles.y + (yawInput * rotationSpeed * Time.deltaTime), transform.localRotation.eulerAngles.z);
 
 
         // Altitude
