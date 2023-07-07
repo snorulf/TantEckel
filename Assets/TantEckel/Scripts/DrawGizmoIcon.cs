@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class IKTarget : MonoBehaviour
+public class DrawGizmoIcon : MonoBehaviour
 {
-    [SerializeField] string iconName = "IKTarget.png";
+    [SerializeField] string iconName;
 
     private void OnDrawGizmos()
     {
