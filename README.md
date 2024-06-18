@@ -1,5 +1,5 @@
 Procedural spider-like walking demo
-![Unity_r8N8bIJlVJ](https://github.com/snorulf/TantEckel/assets/3111080/2b547231-cb25-42ac-8a6f-b90cbade076a)
+![Unity_BJliOqHq2h](https://github.com/snorulf/TantEckel/assets/3111080/cfc10cff-8311-484a-a389-657b9b553268)
 
 Instructions
 - Open TantEckel_demo.scene.
